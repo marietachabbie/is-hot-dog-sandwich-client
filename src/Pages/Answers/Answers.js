@@ -14,6 +14,9 @@ export default function Answers() {
 
   useEffect(() => {
     fetchData();
+    const interval = setInterval(fetchData, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const fetchData = async () => {
