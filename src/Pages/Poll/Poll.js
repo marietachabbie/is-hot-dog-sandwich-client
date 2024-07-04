@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import "./styles.css";
+import "./PollStyles.css";
 
 const REQUIRED_ERR_MSG = "Answer cannot be empty.";
 const BANNED_ERR_MSG = "Please, elaborate why you think so.";

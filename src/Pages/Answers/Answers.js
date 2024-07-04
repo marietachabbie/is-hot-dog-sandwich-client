@@ -1,6 +1,13 @@
-import React, { useState, useEffect } from "react";
-import AnswersTable from "../../Components/AnswersTable/AnswersTable.js";
-import "./styles.css";
+import { useState, useEffect } from "react";
+import { Table } from "antd";
+import "./AnswersStyles.css";
+
+const columns = [
+  {
+    title: "Is a hot dog a sandwich? Why?",
+    dataIndex: "content"
+  }
+];
 
 export default function Answers() {
   const [data, setData] = useState([]);
@@ -19,12 +26,18 @@ export default function Answers() {
     }
   };
 
+  const onChange = (pagination, filters, sorter, extra) => {
+    console.log("params", pagination, filters, sorter, extra);
+  };
+
   return (
-    <div className="Answers">
+    <div>
       <div className="answers-header">
-        <h1>Last 100 answers</h1>
+        <label>
+          <b>Here is what people have to say:</b>
+        </label>
       </div>
-      <AnswersTable data={data} />
+      <Table columns={columns} dataSource={data ?? []} onChange={onChange} />
     </div>
   );
 }
